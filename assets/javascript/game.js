@@ -137,7 +137,7 @@ $(".character").on("click", function () {
 			//change the css to show that the selected character is the defender
 			$(this).addClass("defender");
 			
-
+			//need to add some conditionals to keep the user from being able to click multiple characters and to only apply the correct class when in the correct locations.
 		
 
 		});
@@ -145,31 +145,15 @@ $(".character").on("click", function () {
 });
 
 
-
-
-
-
-
-
-
-
-//couldnt get this working
-// var makeDefender = function() {
-// 	var enemies = $(".character");
-// 	enemies.removeClass(".character").addClass(".enemy");
-// 	enemies.appendTo("#enemyToAttack");
-// }
-	
-
-	//append the rest of the characters to the enemyToAttack location
-
 	
 
 
 //Create a function when then attack button is pressed to apply the champion attack power and defender counter attack power
 	//make sure the attack power grows with each attack
-	//make checks to see if the player is at 0 health
-	//make checks to see if the defender is at 0 health
+	//update the champion and defender health
+	//show the resluts of the attack in the message box
+	//make checks to see if the player is at 0 health add a status for losing in message box
+	//make checks to see if the defender is at 0 health and remove them
 
 
 //Create a reset function to call init()
