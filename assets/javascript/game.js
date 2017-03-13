@@ -4,55 +4,55 @@ console.log("linked");
 
 $(document).ready(function() {
 
-//Set each champion as a data object
+//Set each champion as an object
 
-$("df").data({
+var df = {
 	name: "Bron Stouthammer",
 	health: 180,
 	power: 12,
 	counterAttack: 4,
 	healthId: "fighterHP"
-});
+}
 
-$("her").data({
-	"name": "Evelyn Nightshade",
-	"health": 145,
-	"power": 14,
-	"counterAttack": 5,
-	"healthId": "RangerHP"
-});
+var her = {
+	name: "Evelyn Nightshade",
+	health: 145,
+	power: 14,
+	counterAttack: 5,
+	healthId: "RangerHP"
+}
 
-$("hw").data({
-	"name": "Zav Raan",
-	"health": 120,
-	"power": 16,
-	"counterAttack": 6,
-	"healthId": "wizardHP"
-});
+var hw = {
+	name: "Zav Raan",
+	health: 120,
+	power: 16,
+	counterAttack: 6,
+	healthId: "wizardHP"
+}
 
-$("gb").data({
-	"name": "Rask Strongjaw",
-	"health": 185,
-	"power": 13,
-	"counterAttack": 4,
-	"healthId": "barbarianHP"
-});
+var gb = {
+	name: "Rask Strongjaw",
+	health: 185,
+	power: 13,
+	counterAttack: 4,
+	healthId: "barbarianHP"
+}
 
-$("hr").data({
-	"name": "Tryn Shade Pimwhistle",
-	"health": 140,
-	"power": 15,
-	"counterAttack": 5,
-	"healthId": "rogueHP"
-});
+var hr = {
+	name: "Shade Pimwhistle",
+	health: 140,
+	power: 15,
+	counterAttack: 5,
+	healthId: "rogueHP"
+}
 
-$("ed").data({
-	"name": "Soora Admenor",
-	"health": 135,
-	"power": 14,
-	"counterAttack": 4,
-	"healthId": "druidHP"
-});
+var ed = {
+	name: "Soora Admenor",
+	health: 135,
+	power: 14,
+	counterAttack: 4,
+	healthId: "druidHP"
+}
 
 //Global Variables
 
@@ -85,12 +85,8 @@ function init() {
 
 	//Set each champion to the default selection look
 
-	$(".character")
-		.css("display", "inline")
-		.removeClass(".defender")
-		.prependTo(".start")
-		.css("background-color", "green")
-		.css("color", "black");
+	$(".character").prependTo(".start").addClass("character");
+		
 
 	//Set the message box to be empty
 
@@ -99,26 +95,88 @@ function init() {
 
 	//input the name and health value for each champion
 
-	$("#dfName").html($("#df").data(name));
-	$("#fighterHP").html($("#df").data("health"));
+	$("#dfName").html(df.name);
+	$("#fighterHP").html(parseInt(df.health));
 
-	$("#herName").html($("#her").data("name"));
-	$("#RangerHP").html($("#her").data("health"));
+	$("#herName").html(her.name);
+	$("#rangerHP").html(parseInt(her.health));
 
-	$("#hwName").html($("#hw").data("name"));
-	$("#wizardHP").html($("#hw").data("health"));
+	$("#hwName").html(hw.name);
+	$("#wizardHP").html(parseInt(hw.health));
 
-	$("#gbName").html($("#gb").data("name"));
-	$("#barbarianHP").html($("#gb").data("health"));
+	$("#gbName").html(gb.name);
+	$("#barbarianHP").html(parseInt(gb.health));
 
-	$("#hrName").html($("#hr").data("name"));
-	$("#rogueHP").html($("#hr").data("health"));
+	$("#hrName").html(hr.name);
+	$("#rogueHP").html(parseInt(hr.health));
 
-	$("#edName").html($("#ed").data("name"));
-	$("#druidHP").html($("#ed").data("health"));
-
+	$("#edName").html(ed.name);
+	$("#druidHP").html(parseInt(ed.health));
 
 }
+
+//Create an on click function for the player to select a chamption
+$(".character").on("click", function () {
+		//append the character to the selectedChampion location
+		$(this).appendTo("#selectedChampion");
+
+		//change the css to show that the selected character is your champion
+		$(this).css("backgroundColor", "blue");
+		//Call the function that creates the enemies
+
+		//hide the select your champion div
+		$("#selectRem").hide();
+
+		$(".character").addClass("enemy");
+
+			//create an on click function for the player to select the first opponent
+			$(".character").on("click", function () {
+			//append the character to the defender location
+			$(this).appendTo(".defender");
+
+			//change the css to show that the selected character is the defender
+			$(this).css("backgroundColor", "purple");
+			$(this).css("border", "5px solid orange");
+
+		
+
+		});
+
+});
+
+
+
+
+
+
+
+
+
+
+//couldnt get this working
+// var makeDefender = function() {
+// 	var enemies = $(".character");
+// 	enemies.removeClass(".character").addClass(".enemy");
+// 	enemies.appendTo("#enemyToAttack");
+// }
+	
+
+	//append the rest of the characters to the enemyToAttack location
+
+	
+
+
+//Create a function when then attack button is pressed to apply the champion attack power and defender counter attack power
+	//make sure the attack power grows with each attack
+	//make checks to see if the player is at 0 health
+	//make checks to see if the defender is at 0 health
+
+
+//Create a reset function to call init()
+
+$("#resetButton").on("click", function() {
+	init();
+});
 
 
 

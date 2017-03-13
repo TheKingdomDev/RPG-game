@@ -2,3 +2,25 @@ img {
 	height: 105px;
 	width: 105px;
 }
+
+.character {
+	padding: 10px;
+	height: 160px;
+	width: 125px;
+	background-color: green;
+	display: inline-block;
+	margin: 10px;
+	border: 5px solid gold;
+	text-align: center;
+}
+
+.enemy {
+	padding: 10px;
+	height: 160px;
+	width: 125px;
+	background-color: red;
+	display: inline-block;
+	margin: 10px;
+	border: 5px solid black;
+	text-align: center;
+}
