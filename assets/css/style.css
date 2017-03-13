@@ -24,3 +24,25 @@ img {
 	border: 5px solid black;
 	text-align: center;
 }
+
+.champion {
+	padding: 10px;
+	height: 160px;
+	width: 125px;
+	background-color: blue;
+	display: inline-block;
+	margin: 10px;
+	border: 5px solid yellow;
+	text-align: center;
+}
+
+.defender {
+	padding: 10px;
+	height: 160px;
+	width: 125px;
+	background-color: purple;
+	display: inline-block;
+	margin: 10px;
+	border: 5px solid orange;
+	text-align: center;
+}

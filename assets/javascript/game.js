@@ -85,7 +85,7 @@ function init() {
 
 	//Set each champion to the default selection look
 
-	$(".character").prependTo(".start").addClass("character");
+	$(".character").prependTo(".start").addClass("character").removeClass("champion enemy defender");
 		
 
 	//Set the message box to be empty
@@ -121,7 +121,7 @@ $(".character").on("click", function () {
 		$(this).appendTo("#selectedChampion");
 
 		//change the css to show that the selected character is your champion
-		$(this).css("backgroundColor", "blue");
+		$(this).addClass("champion");
 		//Call the function that creates the enemies
 
 		//hide the select your champion div
@@ -132,11 +132,11 @@ $(".character").on("click", function () {
 			//create an on click function for the player to select the first opponent
 			$(".character").on("click", function () {
 			//append the character to the defender location
-			$(this).appendTo(".defender");
+			$(this).appendTo("#defenderLocation");
 
 			//change the css to show that the selected character is the defender
-			$(this).css("backgroundColor", "purple");
-			$(this).css("border", "5px solid orange");
+			$(this).addClass("defender");
+			
 
 		
 
