@@ -3,6 +3,20 @@ img {
 	width: 105px;
 }
 
+body {
+	background-color: gray;
+}
+
+p {
+	color: white;
+	font-size: 18px;
+	margin: 5px;
+}
+
+.container {
+	text-align: center;
+}
+
 .character {
 	padding: 10px;
 	height: 160px;
@@ -45,4 +59,63 @@ img {
 	margin: 10px;
 	border: 5px solid orange;
 	text-align: center;
+}
+
+#banner {
+	height: 300px;
+	width: 100%;
+}
+
+#mainHeader {
+	text-align: center;
+	margin: 20px 0;
+	padding: 10px;
+	font-weight: bold;
+	font-size: 48px;
+	background-color: darkred;
+	color: white;
+}
+
+#selectRem {
+	font-weight: bold;
+	font-size: 24px;
+	color: white;
+	margin: 15px;
+}
+
+#enemyStyle {
+	font-weight: bold;
+	font-size: 24px;
+	color: white;
+	margin: 15px;
+}
+
+#battleStyle {
+	font-weight: bold;
+	font-size: 54px;
+	color: white;
+	margin: 10px;
+}
+
+#defenderStyle {
+	font-weight: bold;
+	font-size: 24px;
+	color: white;
+	margin: 15px;
+}
+
+#attackButton {
+	background-color: red;
+	color: white;
+	height: 65px;
+	width: 110px;
+	margin: 10px;
+}
+
+#resetButton {
+	background-color: green;
+	color: white;
+	margin: 15px;
+	height: 45px;
+	widows: 95px;
 }

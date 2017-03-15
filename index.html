@@ -13,8 +13,11 @@
 </head>
 <body>
 
-	<h1>Dungeons and Dragons RPG!</h1>
+	<h1 id = "mainHeader">Dungeons and Dragons RPG!</h1>
+	<img id = "banner" src="assets/images/DandDBanner.jpg" alt="ddbanner">
 
+
+<div class = "container">
 	<!-- Create div's to hold fighters -->
 	<div class = "start">
 		<div class = "character" id = "df">
@@ -31,12 +34,7 @@
 			<p id = "rangerHP"></p>
 		</div>
 
-		<div class = "character" id = "hw">
-			<h6>Human Wizard</h6>
-			<h6 id = "hwName"></h6>
-			<img src="assets/images/HumanWizard.jpg" alt="HumanWizard">
-			<p id = "wizardHP"></p>
-		</div>
+		
 
 		<div class = "character" id = "gb">
 			<h6>Goliath Barbarian</h6>
@@ -52,34 +50,31 @@
 			<p id = "rogueHP"></p>
 		</div>
 
-		<div class = "character" id = "ed">
-			<h6>Elf Druid</h6>
-			<h6 id = "edName"></h6>
-			<img src="assets/images/ElfDruid.jpg" alt="ElfDruid">
-			<p id = "druidHP"></p>
-		</div>
+		
 
-			<h2 id = "selectRem">Select Your Champion</h2>
+			<h2 id = "selectRem">--Select Your Champion--</h2>
 	</div>
 
 	<div>
-		<h2>Which Enemy Will You Attack?</h2>
+		<h2 id = "enemyStyle">Which Enemy Will You Attack?</h2>
 		<div id = "enemyToAttack"></div>
 	</div>
 
 	<div>
-		<h2>Arena</h2>
+		<h2 id = "battleStyle">====== The Battle Arena ======</h2>
 		<div id = "selectedChampion"></div>
 		<button id = "attackButton">Attack</button>
 	</div>
 
 	<div>
-	<h2>Defender</h2>
+	<h2 id = "defenderStyle">Defender</h2>
 	<div id = "defenderLocation"></div>
 	</div>
 
 	<div id = "messageBox"></div>
 	<button id = "resetButton">Reset</button>
+
+</div>
 
 <script src = "assets/javascript/game.js"></script>	
 </body>
