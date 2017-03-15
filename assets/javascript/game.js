@@ -126,7 +126,7 @@ function attackEvent() {
 		$("#messageBox").html("<p>You have attacked " + defender.name + "for " + attacker.power + "damage</p><p>" + defender.name + " has attacked you back for " + defender.counterAttackPower + " damage</p>");
 
 	if($(".enemy .character").is(":empty") && defender.health <= 0) {
-		$(".enemy").on("click");
+		$("#messageBox").html("<p>You have won the Arena Battle! Hail, Victor!</p>");
 
 	}
 	else if(defender.health <= 0) {
@@ -140,6 +140,7 @@ function attackEvent() {
 		$("#messageBox").html("<p>You have been defeated, Game Over! Press reset to try again.</p>");
 	}
 
+
 	attacker.power += attack;
 
 	}
@@ -151,13 +152,6 @@ function attackEvent() {
 
 //Create an on click function for the player to select a chamption
 $(".character").on("click", function () {
-
-	//set the isChampionChosen to true
-
-	
-
-	
-
 
 	if(!isChampionChosen) {
 		//append the character to the selectedChampion location
@@ -197,7 +191,7 @@ $(".character").on("click", function () {
 		$("#enemyStyle").show();
 		//Call the function that creates the enemies
 		$(".character").addClass("enemy");
-
+		//set the isChampionChosen to true
 		isChampionChosen = true;
 
 	}
@@ -246,7 +240,7 @@ $(".character").on("click", function () {
 			$("#messageBox").empty();
 
 
-			isDefenderChosen = true;
+			isDefenderChosen = false;
 			}
 
 		});
