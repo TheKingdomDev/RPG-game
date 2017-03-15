@@ -2,6 +2,23 @@
 
 //Dungeons and Dragons RPG Game
 
+//========Global Variables=======//
+
+var championHealth;
+var defenderHealth;
+var champtionPower;
+var defenderPower;
+var isChampionChosen;
+var isDefenderChosen;
+var championId;
+var defenderId;
+var championLoses;
+var defenderLoses;
+var attack;
+var counterAttack;
+var origvalue;
+var enemies = 3;
+
 $(document).ready(function() {
 
 //Set each champion as an object
@@ -41,22 +58,7 @@ $(document).ready(function() {
 	}
 
 
-//========Global Variables=======//
 
-var championHealth;
-var defenderHealth;
-var champtionPower;
-var defenderPower;
-var isChampionChosen;
-var isDefenderChosen;
-var championId;
-var defenderId;
-var championLoses;
-var defenderLoses;
-var attack;
-var counterAttack;
-var origvalue;
-var enemies = 3;
 
 
 
@@ -126,8 +128,8 @@ function attackEvent() {
 		$(".champion .fighterHP").html(attacker.health);
 		console.log(attacker.health);
 		$("#messageBox").html("<p>You have attacked " + defender.name + "for " + attacker.power + "damage</p><p>" + defender.name + " has attacked you back for " + defender.counterAttackPower + " damage</p>");
-
-	if(enemies === 0 && defender.health <= 0) {
+console.log(enemies, defender.health);
+	if(enemies === 1 && defender.health <= 0) {
 		$("#messageBox").html("<p>You have won the Arena Battle! Hail, Victor!</p>");
 
 	}
