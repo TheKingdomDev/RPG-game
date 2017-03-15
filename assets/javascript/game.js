@@ -101,12 +101,12 @@ function init() {
 	$("#hrName").html(hr.name);
 	$("#rogueHP").html(parseInt(hr.health));
 
-	$(".character").addClass("character").on("click");
+	
 }
 
 //Create a function when then attack button is pressed to apply the champion attack power and defender counter attack power
 
-function attack() {
+function attackEvent() {
 	//make sure the attack power grows with each attack
 	//update the champion and defender health
 	//show the resluts of the attack in the message box
@@ -119,23 +119,28 @@ function attack() {
 		defender.health = defender.health - attacker.power;
 		attacker.health = attacker.health - defender.counterAttackPower;
 
-		$(".defender .character").html("<p>" + defender.health + "</p>");
-		$(".champion .character").html("<p>" + attacker.health + "</p>");
+		$(".defender .fighterHP").html(defender.health);
+		console.log(defender.health);
+		$(".champion .fighterHP").html(attacker.health);
+		console.log(attacker.health);
 		$("#messageBox").html("<p>You have attacked " + defender.name + "for " + attacker.power + "damage</p><p>" + defender.name + " has attacked you back for " + defender.counterAttackPower + " damage</p>");
 
 	if($(".enemy .character").is(":empty") && defender.health <= 0) {
-		console.log("what now?");
+		$(".enemy").on("click");
 
 	}
 	else if(defender.health <= 0) {
-		$("#messageBox").html("<p>You have defeated " + defender.name + "you can choose to fight another enemy.</p>");
-		$(".defender").empty();
+		defenderLoses = true;
+		$("#messageBox").html("<p>You have defeated " + defender.name + " you can choose to fight another enemy.</p>");
+		$(".defender").remove();
+		
 	}
 	else if(attacker.health <= 0) {
-		$("#messageBox").html("<p>You have been defeated, Game Over! Press reset to try again.</p>")
+		championLoses = true;
+		$("#messageBox").html("<p>You have been defeated, Game Over! Press reset to try again.</p>");
 	}
 
-	attacker.power += origvalue;
+	attacker.power += attack;
 
 	}
 }
@@ -149,12 +154,12 @@ $(".character").on("click", function () {
 
 	//set the isChampionChosen to true
 
-	isChampionChosen = true;
+	
 
 	
 
 
-	if(isChampionChosen === true) {
+	if(!isChampionChosen) {
 		//append the character to the selectedChampion location
 		$(this).appendTo("#selectedChampion");
 
@@ -193,22 +198,26 @@ $(".character").on("click", function () {
 		//Call the function that creates the enemies
 		$(".character").addClass("enemy");
 
+		isChampionChosen = true;
+
 	}
 
 		//create an on click function for the player to select the first opponent
 			$(".character").on("click", function () {
 
-				isDefenderChosen = true;
+				
 
-			if(isDefenderChosen === true) {	
+			if(!isDefenderChosen) {	
 			//append the character to the defender location
 			$(this).appendTo("#defenderLocation");
 
 			//change the css to show that the selected character is the defender
 			$(this).addClass("defender");
+
+			$(this).removeClass("champion");
 		
 			//Turn of listener to prevent another click 		
-			$(".character").off("click");
+			// $(".character").off("click");
 
 			var clickedBtnID = $(this).attr('id');
 
@@ -236,6 +245,8 @@ $(".character").on("click", function () {
 
 			$("#messageBox").empty();
 
+
+			isDefenderChosen = true;
 			}
 
 		});
@@ -252,7 +263,7 @@ $("#resetButton").on("click", function() {
 
 //Listener for the attack button
 
-$("#attackButton").on("click", attack);
+$("#attackButton").on("click", attackEvent);
 
 
 
