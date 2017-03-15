@@ -56,6 +56,7 @@ var defenderLoses;
 var attack;
 var counterAttack;
 var origvalue;
+var enemies = 3;
 
 
 
@@ -74,6 +75,7 @@ function init() {
 	championLoses = false;
 	defenderLoses = false;
 	attack = 0;
+	
 
 	//Set each champion to the default selection look
 
@@ -125,7 +127,7 @@ function attackEvent() {
 		console.log(attacker.health);
 		$("#messageBox").html("<p>You have attacked " + defender.name + "for " + attacker.power + "damage</p><p>" + defender.name + " has attacked you back for " + defender.counterAttackPower + " damage</p>");
 
-	if($(".enemy .character").is(":empty") && defender.health <= 0) {
+	if(enemies === 0 && defender.health <= 0) {
 		$("#messageBox").html("<p>You have won the Arena Battle! Hail, Victor!</p>");
 
 	}
@@ -133,6 +135,7 @@ function attackEvent() {
 		defenderLoses = true;
 		$("#messageBox").html("<p>You have defeated " + defender.name + " you can choose to fight another enemy.</p>");
 		$(".defender").remove();
+		enemies--;
 		
 	}
 	else if(attacker.health <= 0) {
